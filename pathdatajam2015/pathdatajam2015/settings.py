@@ -1,5 +1,5 @@
 """
-Django settings for cookiecutter_django project.
+Django settings for pathdatajam2015 project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import django.db.backends
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -17,14 +18,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3no72nq3e5p82_^ge=)b(=p85n@4(l8z-1*0yguryvvra_e_z('
+SECRET_KEY = '=urw!e+=ti%*c49ho3g^4bxwqo%psb^e8^1vk_h-ej5u&uy67k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ["*"] # risky business, might want to change this
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -36,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'apps.static'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,14 +49,24 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'ukko.urls'
+ROOT_URLCONF = 'pathdatajam2015.urls'
 
-WSGI_APPLICATION = 'ukko.wsgi.application'
+WSGI_APPLICATION = 'pathdatajam2015.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'pathdatajam',
+        'USER': 'ubuntu',
+        'PASSWORD': 'LocalPassP',
+        'HOST': 'ec2-54-149-206-5.us-west-2.compute.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -76,10 +86,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-
-AUTH_USER_MODEL = 'accounts.User'
-
-
-
-from local_settings import *
-
