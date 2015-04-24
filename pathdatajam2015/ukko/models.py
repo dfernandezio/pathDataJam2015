@@ -12,12 +12,12 @@ from __future__ import unicode_literals
 from django.db import models
 
 class FinalData(models.Model):
-    station = models.CharField(max_length=-1, blank=True)
+    station = models.CharField(max_length=200, blank=True)
     entry = models.BigIntegerField(blank=True, null=True)
     exit = models.BigIntegerField(blank=True, null=True)
     est = models.DateField(blank=True, null=True)
-    events = models.CharField(max_length=-1, blank=True)
-    precipitation_in = models.CharField(max_length=-1, blank=True)
+    events = models.CharField(max_length=200, blank=True)
+    precipitation_in = models.CharField(max_length=200, blank=True)
     id = models.IntegerField(primary_key=True)  # AutoField?
 
     class Meta:
@@ -29,7 +29,7 @@ class TurnstileSan(models.Model):
     rownum = models.BigIntegerField(blank=True, null=True)
     entry = models.IntegerField(blank=True, null=True)
     exit = models.IntegerField(blank=True, null=True)
-    station = models.CharField(max_length=-1, blank=True)
+    station = models.CharField(max_length=200, blank=True)
     date_time = models.DateTimeField(blank=True, null=True)
 
     class Meta:
@@ -56,9 +56,9 @@ class WeatherData(models.Model):
     max_wind_speed_mph = models.IntegerField(blank=True, null=True)
     mean_wind_speed_mph = models.IntegerField(blank=True, null=True)
     max_gust_speed_mph = models.IntegerField(blank=True, null=True)
-    precipitation_in = models.CharField(max_length=-1, blank=True)
+    precipitation_in = models.CharField(max_length=200, blank=True)
     cloud_cover = models.IntegerField(blank=True, null=True)
-    events = models.CharField(max_length=-1, blank=True)
+    events = models.CharField(max_length=200, blank=True)
     wind_dir_degrees = models.IntegerField(blank=True, null=True)
 
     class Meta:
