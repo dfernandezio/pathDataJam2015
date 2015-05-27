@@ -1,0 +1,16 @@
+#main-menu {
+	background-color: #EEEEEE;
+	color:#333;
+}
+
+#main-menu ul {
+	width:100%;
+	height:auto;	
+}
+
+#main-menu ul > li {
+	padding:2rem;
+	margin:auto;
+	float:left;
+	font-size:2rem;
+}

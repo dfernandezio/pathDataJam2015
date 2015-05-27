@@ -1,9 +1,8 @@
-{% extends "base_generic.html" %}
-
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'ukko/style.css' %}" />
     <title>{% block title %}Ukko{% endblock %}</title>
 </head>
 
@@ -11,10 +10,10 @@
     <div id="main-menu">
         {% block menu %}
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/chart">Chart</a></li>
-            <li><a href="/table">Table</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="{% url 'ukko:index' %}">Home</a></li>
+            <li><a href="{% url 'ukko:chart' %}">Chart</a></li>
+            <li><a href="{% url 'ukko:table' %}">Table</a></li>
+            <li><a href="{% url 'ukko:about' %}">About</a></li>
         </ul>
         {% endblock %}
     </div>
